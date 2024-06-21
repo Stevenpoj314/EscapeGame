@@ -9,9 +9,11 @@ EditorBuildSettings:
     path: Assets/VR Beginner/Scenes/Final/EscapeRoom.unity
     guid: 0f290611f0f8be4419d06b71aba4e36a
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 398d945149746a94899cafbfeddf8c9f,
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 19536ff4fb0107c419c46f1ef5ebd925,
+      type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: 219fa586d2690014d91b6e4b63c1cdd5,
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: a422e2a2e6c83184e9b23d6413331359,
       type: 2}
-    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 07a9ee58a0c074c428efff65c5a4f857,
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: c957eb424183f79489102497727ab096,
       type: 2}
