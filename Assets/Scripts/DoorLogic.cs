@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DooLogic : MonoBehaviour
 {
-    public GameObject Door;
+    public GameObject ExitDoor;
 
     private void OnTriggerEnter(Collider Player)
     {
@@ -15,7 +15,7 @@ public class DooLogic : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Space) && LevelScript.instance.HasFirstKey)
         {
-            Destroy(Door);
+            Destroy(ExitDoor);
         }
 
         else
