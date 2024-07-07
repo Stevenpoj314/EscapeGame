@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DooLogic : MonoBehaviour
+public class DoorLogic : MonoBehaviour
 {
-    public GameObject ExitDoor;
+    public float StartRotate;
+    public float EndRotate;
 
     private void OnTriggerEnter(Collider Player)
     {
@@ -15,7 +16,8 @@ public class DooLogic : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Space) && LevelScript.instance.HasFirstKey)
         {
-            Destroy(ExitDoor);
+            StartCoroutine(DoorRotate());
+            Debug.Log("Door unlocked");
         }
 
         else
@@ -23,4 +25,17 @@ public class DooLogic : MonoBehaviour
             Debug.Log("You don't have a key");
         }
     }
+
+    private IEnumerator DoorRotate()
+    {
+        for (float i = StartRotate; i < EndRotate; i++)
+        {
+            transform.eulerAngles = new Vector3(transform.rotation.x, i, transform.rotation.z);
+            //transform.Rotate(transform.rotation.x, i, transform.rotation.z);
+            yield return null;
+            Debug.Log(i);
+        }
+
+
+    }       
 }

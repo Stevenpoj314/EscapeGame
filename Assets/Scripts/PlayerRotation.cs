@@ -41,8 +41,6 @@ public class PlayerRotation : MonoBehaviour
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-        Debug.Log(mouseX);
-        Debug.Log(mouseY);
 
         xRotation -= mouseY;
         //xRotation = Mathf.Clamp(xRotation, minAngle, maxAngle);

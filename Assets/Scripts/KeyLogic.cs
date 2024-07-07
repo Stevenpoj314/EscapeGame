@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class KeyLogic : MonoBehaviour
 {
-    public GameObject Key;
 
     private void OnTriggerEnter(Collider Player)
     {
@@ -15,7 +14,7 @@ public class KeyLogic : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Destroy(Key);
+            Destroy(gameObject);
         }
     }
 }
