@@ -9,7 +9,7 @@ public class DoorLogic : MonoBehaviour
 
     private void OnTriggerEnter(Collider Player)
     {
-        Debug.Log("Press space to open");
+        //Debug.Log("Press space to open");
     }
 
     private void OnTriggerStay(Collider other)
@@ -17,7 +17,7 @@ public class DoorLogic : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space) && LevelScript.instance.HasFirstKey)
         {
             StartCoroutine(DoorRotate());
-            Debug.Log("Door unlocked");
+            // Debug.Log("Door unlocked");
         }
 
         else
@@ -33,7 +33,7 @@ public class DoorLogic : MonoBehaviour
             transform.eulerAngles = new Vector3(transform.rotation.x, i, transform.rotation.z);
             //transform.Rotate(transform.rotation.x, i, transform.rotation.z);
             yield return null;
-            Debug.Log(i);
+            
         }
 
 

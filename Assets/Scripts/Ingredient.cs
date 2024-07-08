@@ -5,24 +5,22 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-    private BoxCollider ColliderTrigger;
+   
 
-    public Transform TeleportPlace;
-    //public Animator cauldron;
-    public GameObject Ingredients;
+   
    
     public void Start()
     {
-        ColliderTrigger = GetComponent<BoxCollider>();
+        
     }
     private void OnTriggerEnter(Collider other)
     {
-        ColliderTrigger.enabled = false;
-        transform.position = TeleportPlace.position;
+        Destroy(gameObject);
+
 
         //cauldron.SetBool("Open", true);
 
-       Ingredients(GameObject.SetActive(true));
+      
     }
 
     
