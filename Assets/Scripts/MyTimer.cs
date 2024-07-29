@@ -14,11 +14,14 @@ public class MyTimer : MonoBehaviour
         while (TimeCounter > 0) 
         {
             TimeCounter -= Time.deltaTime;
-            return null;
+            yield return null;
         }
 
-        GameController.Instance.Cauldron.SetBool("Brewing", false);
-        return null;
+        Debug.Log("PotionIsCreated");
+        GameController.Instance.Cauldron.SetBool("Open", true);
+        yield return null;
+
+        
 
 
     }

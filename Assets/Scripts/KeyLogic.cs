@@ -14,6 +14,7 @@ public class KeyLogic : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            GameController.Instance.HasFirstKey = true;
             Destroy(gameObject);
         }
     }

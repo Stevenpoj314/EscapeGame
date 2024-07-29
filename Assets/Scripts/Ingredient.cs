@@ -15,7 +15,9 @@ public class Ingredient : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        GameController.Instance.IngredientsCounter++;
         Destroy(gameObject);
+
 
 
         //cauldron.SetBool("Open", true);

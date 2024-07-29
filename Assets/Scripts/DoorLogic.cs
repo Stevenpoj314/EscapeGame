@@ -14,7 +14,7 @@ public class DoorLogic : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyUp(KeyCode.Space) && LevelScript.instance.HasFirstKey)
+        if (Input.GetKeyUp(KeyCode.Space) && GameController.Instance.HasFirstKey)
         {
             StartCoroutine(DoorRotate());
             // Debug.Log("Door unlocked");

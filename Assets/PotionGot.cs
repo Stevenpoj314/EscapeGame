@@ -2,22 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClosedState : StateMachineBehaviour
+public class PotionGot : StateMachineBehaviour
 {
-    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (GameController.Instance.IsCauldronHasIngredient == true)
-        {
-            GameController.Instance.Cauldron.SetTrigger("Brewing");
-            GameController.Instance.BrewingTimer(0.9f);
-            GameController.Instance.IsCauldronHasIngredient = false;
-
-
-        }
-
-
+        GameController.Instance.Cauldron.SetBool("Open", false);
+        GameController.Instance.PotionBottle.GetComponent<BoxCollider>().enabled = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

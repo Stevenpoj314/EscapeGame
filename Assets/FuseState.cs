@@ -2,22 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClosedState : StateMachineBehaviour
+public class FuseState : StateMachineBehaviour
 {
-    
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (GameController.Instance.IsCauldronHasIngredient == true)
-        {
-            GameController.Instance.Cauldron.SetTrigger("Brewing");
-            GameController.Instance.BrewingTimer(0.9f);
-            GameController.Instance.IsCauldronHasIngredient = false;
-
-
-        }
-
-
+        Debug.Log("Fuse animation starts");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -27,10 +18,13 @@ public class ClosedState : StateMachineBehaviour
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        Debug.Log("Fuse animation ends");
+        GameController.Instance.IsHasFuse = true;
+        GameController.Instance.FuseBox.SetBool("Start", false);
+
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
