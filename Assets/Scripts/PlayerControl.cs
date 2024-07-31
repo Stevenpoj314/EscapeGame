@@ -1,6 +1,6 @@
 using JetBrains.Annotations;
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
@@ -13,32 +13,19 @@ public class PlayerControl : MonoBehaviour
 
     public bool isMove;
     public bool IsPlayerTeleported;
-    Transform MyteleportTransform;
 
     public void SetPlayerMove()
     {
         isMove = true;
     }
 
-
     void Update()
     {
-        
-        if (IsPlayerTeleported)
-        {
-            transform.position = MyteleportTransform.position;
-            isMove = true;
-            IsPlayerTeleported = false;
-            Debug.Log("Player has potion");
-        }
-
         if (isMove)
         {
-           
             PlayerMove();
         }
 
-       
 
         if (GameController.Instance.HasFirstKey)
         {
@@ -58,17 +45,14 @@ public class PlayerControl : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
+        //transform.position += move * Time.deltaTime * speed;
         controller.Move(move * speed * Time.deltaTime);
+        
     }
 
-    public void PlayerTeleport(Transform teleportTransform)
+    public void PlayerTeleport(Transform teleportPoint)
     {
-        isMove = false;
-
-        MyteleportTransform = teleportTransform;
-
-        IsPlayerTeleported = true;
-
+        transform.position = teleportPoint.position;
 
         Debug.Log("Player teleported");
     }
