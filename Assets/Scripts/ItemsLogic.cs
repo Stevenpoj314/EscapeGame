@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Items : MonoBehaviour
 {
-    
+   
 
     public void OnTriggerEnter(Collider other)
     {
-        GameController.Instance.ItemsCounter++;
+        GameController.Instance.IncreaseItemAmount();
         Destroy(gameObject);
-
+         
+        
     }
 }

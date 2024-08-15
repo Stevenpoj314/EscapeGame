@@ -23,7 +23,7 @@ public class IngredientsState : StateMachineBehaviour
         Debug.Log("Ingredients finish animation");
         GameController.Instance.IsCauldronHasIngredient = true;
         GameController.Instance.Cauldron.SetBool("Open", false);
-
+       
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

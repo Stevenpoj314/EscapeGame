@@ -11,9 +11,19 @@ public class CauldronAnimationOpen : StateMachineBehaviour
         Debug.Log("Opened start");
       
 
-        if (GameController.Instance.IsPotionReady)
+        if (GameController.Instance.IsFirstPotionReady)
         {
+            
             GameController.Instance.PotionBottle.SetActive(true);
+            GameController.Instance.IsFirstPotionReady = false;
+           
+
+        }
+
+        else if (GameController.Instance.IsSecondPotionReady)
+        {
+            GameController.Instance.DoorPotion.SetActive(true);
+            GameController.Instance.IsSecondPotionReady = false;
         }
 
         else

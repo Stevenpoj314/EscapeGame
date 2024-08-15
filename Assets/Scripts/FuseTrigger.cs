@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class FuseTrigger : MonoBehaviour
 {
-    public Animator FuseObject;
-    public GameObject fuse;
+    public Animator FuseAnimator;
+    public GameObject FuseObject;
     public BoxCollider FuseBox;
 
     public void OnTriggerEnter(Collider other)
     {
       
-        fuse.SetActive(true);
+        FuseObject.SetActive(true);
 
-        FuseObject.SetBool("Start", true);
+        FuseAnimator.SetTrigger("AnimationStart");
 
         FuseBox.enabled = false;
         

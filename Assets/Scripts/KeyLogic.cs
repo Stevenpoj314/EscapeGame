@@ -1,21 +1,43 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
+[RequireComponent(typeof(PickUpLogic))]
 public class KeyLogic : MonoBehaviour
 {
 
-    private void OnTriggerEnter(Collider Player)
+    public bool IsHasKey { get; set; }
+     
+    public Action OpenAction {  get; set; }
+    public PickUpLogic pickUpLogic {  get; set; }
+
+    public UnityEvent OpenActionUnityEvent;
+
+    public void Start()
     {
-        Debug.Log("Press space to pick up Key");
+       pickUpLogic = GetComponent<PickUpLogic>();
+        pickUpLogic.OnPickedUp += KeyPickUp;
     }
 
-    private void OnTriggerStay(Collider other)
+    public void KeyPickUp()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        IsHasKey = true;
+    }
+    public void DoorOpen()
+    {
+        if (IsHasKey)
         {
-            GameController.Instance.HasFirstKey = true;
-            Destroy(gameObject);
+            OpenAction?.Invoke();
+            OpenActionUnityEvent?.Invoke();
+        }
+
+        else
+        {
+            Debug.Log("You don't have key");
         }
     }
+
+
 }

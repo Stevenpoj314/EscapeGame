@@ -19,8 +19,18 @@ public class BrewingState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameController.Instance.IsPotionReady = true;
+        if (GameController.Instance.IngredientsPotionCounter == 4)
+        {
+
+            GameController.Instance.IsFirstPotionReady = true;
+            GameController.Instance.IngredientsPotionCounter = 0;
+        }
         
+        else if(GameController.Instance.ItemsCounter == 4)
+        {
+            GameController.Instance.IsSecondPotionReady = true;
+            GameController.Instance.ItemsCounter = 0;
+        }
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

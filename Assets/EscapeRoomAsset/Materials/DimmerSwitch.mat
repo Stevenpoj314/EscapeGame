@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: DimmerSwitch
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_Parent: {fileID: 2100000, guid: 3f6892afe3ba62840bd920bce9e67bc2, type: 2}
+  m_Parent: {fileID: 2100000, guid: 85947ffe4a26a41458fada64061c9d44, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _METALLICSPECGLOSSMAP

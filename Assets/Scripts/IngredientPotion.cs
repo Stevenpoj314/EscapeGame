@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Search;
 using UnityEngine;
 
-public class Ingredient : MonoBehaviour
+public class IngredientPotion : MonoBehaviour
 {
    
 
@@ -15,7 +15,7 @@ public class Ingredient : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        GameController.Instance.IngredientsCounter++;
+        GameController.Instance.IncreasePotionIngredientAmount();
         Destroy(gameObject);
 
 

@@ -5,8 +5,13 @@ using UnityEngine;
 public class Fuse : MonoBehaviour
 {
     public GameObject fuse;
+    public BoxCollider FuseBoxCollider;
     public void OnTriggerEnter(Collider other)
     {
-        Destroy(fuse);
+        GameController.Instance.IsChestOpen = true;
+          FuseBoxCollider.enabled = true;
+          Destroy(fuse);
+
+        
     }
 }

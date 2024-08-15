@@ -1,12 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Policy;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DoorLogic : MonoBehaviour
 {
     public float StartRotate;
     public float EndRotate;
+    public KeyLogic DoorKey;
 
+
+    public void Start()
+    {
+        DoorKey.OpenAction += DoorOpen;
+    }
     private void OnTriggerEnter(Collider Player)
     {
         //Debug.Log("Press space to open");
@@ -14,16 +23,20 @@ public class DoorLogic : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyUp(KeyCode.Space) && GameController.Instance.HasFirstKey)
+        if (Input.GetKeyUp(KeyCode.Space))
         {
-            StartCoroutine(DoorRotate());
-            // Debug.Log("Door unlocked");
+            DoorKey.DoorOpen();
         }
 
         else
         {
             Debug.Log("You don't have a key");
         }
+    }
+
+    private void DoorOpen()
+    {
+        StartCoroutine(DoorRotate());
     }
 
     private IEnumerator DoorRotate()
